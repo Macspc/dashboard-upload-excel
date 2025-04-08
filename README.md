@@ -46,32 +46,17 @@ Inicie o servidor:
 
 npm start
 
-Acesse: http://localhost:3000
+Acesse: http://localhost:3000/login
 
 📌 Estrutura de Arquivos
 
-
-dashboard-upload-excel/
-├── config/
-│   └── db.js           # Configuração do banco de dados
-├── controllers/        # Lógica das rotas
-├── middlewares/        # Middlewares (auth, upload)
-├── models/            # Modelos do banco de dados
-├── public/            # Arquivos estáticos (CSS, JS)
-├── uploads/           # Planilhas enviadas (criado automaticamente)
-├── views/             # Templates EJS
-│   ├── auth/          # Páginas de autenticação
-│   └── dashboard.ejs  # Página principal
-├── app.js             # Configuração principal
-└── package.json
+<img src="public/img/estrutura.png">
 
 🔐 Credenciais Padrão
 
 Admin: admin@exemplo.com / senha123
 
-Usuário Teste: teste@exemplo.com / teste123
-
-(Altere estas credenciais em produção!)
+(Voce tambem pode cadastrar um usuario na tela de login!)
 
 📊 Processamento de Planilhas
 
