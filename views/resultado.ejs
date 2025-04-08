@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Análise</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/dashboard">Sistema de Análise</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">Bem-vindo, <%= user.username %></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Resultado da Análise</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Arquivo: <%= resultado.nomeArquivo %></h5>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="card text-white bg-success mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Registros Válidos</h5>
+                                        <p class="card-text display-4"><%= resultado.registrosValidos %></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card text-white bg-danger mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Registros Inválidos</h5>
+                                        <p class="card-text display-4"><%= resultado.registrosInvalidos %></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card text-white bg-info mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total de Registros</h5>
+                                        <p class="card-text display-4"><%= resultado.totalRegistros %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="mt-4">Problemas Detectados</h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Tipo de Problema</th>
+                                        <th>Quantidade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (const [campo, quantidade] of Object.entries(resultado.problemasDetectados.camposVazios)) { %>
+                                        <tr>
+                                            <td>Campo vazio: <%= campo %></td>
+                                            <td><%= quantidade %></td>
+                                        </tr>
+                                    <% } %>
+                                    <% for (const [campo, quantidade] of Object.entries(resultado.problemasDetectados.formatosInvalidos)) { %>
+                                        <tr>
+                                            <td>Formato inválido: <%= campo %></td>
+                                            <td><%= quantidade %></td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="/dashboard" class="btn btn-primary">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

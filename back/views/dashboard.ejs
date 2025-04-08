@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Análise</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sistema de Análise</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">Bem-vindo, <%= user.username %></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Upload de Planilha</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="planilha" class="form-label">Selecione o arquivo Excel (.xls, .xlsx)</label>
+                                <input class="form-control" type="file" id="planilha" name="planilha" accept=".xls,.xlsx" required>
+                                <div class="form-text">A planilha será analisada para verificar os campos obrigatórios.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar e Analisar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
