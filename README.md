@@ -70,28 +70,14 @@ Tipos de dados
 
 Estrutura da planilha
 
-Exemplo de saída:
 
-json
-Copy
-{
-  "nomeArquivo": "clientes.xlsx",
-  "totalRegistros": 150,
-  "registrosValidos": 142,
-  "registrosInvalidos": 8,
-  "problemasDetectados": {
-    "camposVazios": {"cnpj": 3},
-    "formatosInvalidos": {"cpf": 5}
-  }
-}
 🌐 Rotas Principais
-Rota	Descrição
-/	Redireciona para login/dashboard
-/login	Página de login
-/register	Página de registro
-/dashboard	Área logada (upload de arquivos)
-/upload	Endpoint para upload (POST)
+
+<img src="public/img/rotas.png">
+
+
 📝 Licença
+
 MIT License - Consulte o arquivo LICENSE para detalhes.
 
 Nota para Desenvolvedores: Para configurar o envio de emails reais na recuperação de senha, edite as configurações em config/mail.js.
